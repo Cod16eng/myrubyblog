@@ -1,6 +1,11 @@
 <h1>Blog Posts</h1>
-<h3>Sample Post One</h3>
-<p><%=@content_first%></p>
+
+<% @posts.each do |post| %>
+	<h3><%= link_to post.title, post %></h3>
+<p><%= post.body %></p>
+<small>Created at: <%= post.created_at.strftime("%d - %b - %Y") %></small>
 <hr>
-<h3>Sample Post Two</h3>
-<p><%=@content_second%></p>
+<% end %>
+<%= link_to "Add New Post", new_post_path %>
+
+
